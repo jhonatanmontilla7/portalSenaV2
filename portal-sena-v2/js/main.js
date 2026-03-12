@@ -99,9 +99,11 @@ const AccessibilityPanel = (() => {
     },
 
     'high-contrast': (btn) => {
-      const active = document.body.classList.toggle('high-contrast');
-      btn.setAttribute('aria-pressed', active);
+    const active = document.body.classList.toggle('high-contrast');
+    btn.setAttribute('aria-pressed', active);
+    btn.classList.toggle('active', active); // 🔧 nuevo
     },
+
 
     'screen-reader': (btn) => {
       // En producción: integrar con una librería como aria-live o nvda API

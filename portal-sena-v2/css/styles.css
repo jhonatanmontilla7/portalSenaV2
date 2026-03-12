@@ -82,7 +82,7 @@ body {
 
 /* Modo de accesibilidad */
 body.large-text    { font-size: 19px; }
-body.high-contrast { filter: contrast(1.5) saturate(0.8); }
+/*body.high-contrast { filter: contrast(1.5) saturate(0.8); }*/
 
 img, video { max-width: 100%; display: block; }
 ul, ol { list-style: none; }
@@ -222,6 +222,99 @@ h1, h2, h3, h4 { line-height: 1.25; }
   color: white;
   border-color: var(--color-green);
 }
+
+
+/* Contraste alto aplicado al body */
+body.high-contrast {
+  /* Fondos */
+  --bg-white: #000;
+  --bg-light: #000;
+
+  /* Texto */
+  --color-dark: #fff;
+  --color-text: #fff;
+
+  /* Bordes */
+  --border-color: #fff;
+
+  /* Enlaces */
+  --color-link: yellow;
+
+  background-color: var(--bg-white);
+  color: var(--color-text);
+}
+
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast p {
+  color: #fff !important;
+}
+
+/* Tarjetas en contraste alto */
+body.high-contrast .quick-card,
+body.high-contrast .acceso-rapido {
+  background-color: #000 !important;  /* fondo negro */
+  color: #fff !important;             /* texto blanco */
+  border: 1px solid #fff;             /* bordes visibles */
+}
+
+/* Textos dentro de las tarjetas */
+body.high-contrast .quick-card strong,
+body.high-contrast .quick-card span,
+body.high-contrast .acceso-rapido strong,
+body.high-contrast .acceso-rapido span {
+  color: #fff !important;
+}
+
+/* Enlaces dentro de las tarjetas */
+body.high-contrast .quick-card a,
+body.high-contrast .acceso-rapido a {
+  color: yellow !important;
+}
+
+
+
+body.high-contrast a {
+  color: yellow !important;
+}
+
+
+body.high-contrast {
+  background-color: #000;
+  color: #fff;
+}
+
+body.high-contrast main, 
+body.high-contrast section, 
+body.high-contrast article {
+  filter: contrast(1.5) saturate(0.8);
+}
+
+body.high-contrast a {
+  color: yellow;
+}
+
+/* La barra sigue visible en contraste */
+body.high-contrast .access-panel {
+  background: #222;
+  border-color: #fff;
+}
+
+/* Botones en contraste */
+body.high-contrast .access-btn {
+  background: #000;
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Botón activo en contraste */
+body.high-contrast .access-btn.active {
+  background: #fff;
+  color: #000;
+  border-color: #fff;
+}
+
 
 
 /* ================================================================
@@ -1415,6 +1508,7 @@ h1, h2, h3, h4 { line-height: 1.25; }
 ================================================================ */
 
 /*escritorio*/
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -1452,14 +1546,15 @@ h1, h2, h3, h4 { line-height: 1.25; }
   }
 
   .nav-menu {
-    display: none;            /* oculto por defecto */
+    display: none; /* oculto por defecto */
     flex-direction: column;
-    width: 100%;              /* ocupa todo el ancho */
+    width: 100%;
     background: #f5f5f5;
     padding: 10px;
   }
-
   .nav-menu.visible {
-    display: flex;            /* se muestra cuando se activa */
+    display: flex; /* se muestra cuando se activa */
   }
 }
+
+
