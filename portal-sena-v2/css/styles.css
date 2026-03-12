@@ -245,11 +245,18 @@ body.high-contrast {
 }
 
 body.high-contrast h1,
-body.high-contrast h2,
+/*body.high-contrast h2,*/
 body.high-contrast h3,
 body.high-contrast p {
   color: #fff !important;
 }
+body.high-contrast p1 {
+  color: #000 !important;
+}
+body.high-contrast p2 {
+  color: #000 !important;
+}
+
 
 /* Tarjetas en contraste alto */
 body.high-contrast .quick-card,
