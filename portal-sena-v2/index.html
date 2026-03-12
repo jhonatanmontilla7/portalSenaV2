@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Portal oficial del Servicio Nacional de Aprendizaje – Formación, empleo y emprendimiento para todos los colombianos." />
+  <title>SENA – Servicio Nacional de Aprendizaje</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikOeqzfINxvsNpHelPvi1weEH10dbLJoY6-VNrxiddZK2V9lMjStQg6sCA3uHeZE92s4iZ7MsxZPsrWsUJuueA6Sk_kuc5iY-FUgULdsenDKyYdfpAzq-4YXzsJupdlTD5qhQpAhVIbHHm/s200/logo_sena.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&family=Fraunces:ital,wght@0,300;0,600;1,300&display=swap"
+    rel="stylesheet" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ============================================================
+       SCROLL PROGRESS BAR
+  ============================================================ -->
+  <div class="progress-bar" id="progressBar" role="presentation" aria-hidden="true"></div>
+
+
+  <!-- ============================================================
+       ACCESSIBILITY PANEL
+  ============================================================ -->
+  <aside class="access-panel" id="accessPanel" aria-label="Herramientas de accesibilidad">
+    <button class="access-btn" title="Aumentar tamaño de texto" data-action="large-text"
+      aria-pressed="false">A+</button>
+    <button class="access-btn" title="Alto contraste" data-action="high-contrast" aria-pressed="false">◐</button>
+    <button class="access-btn" title="Activar lector de pantalla" data-action="screen-reader"
+      aria-pressed="false">🔊</button>
+    <button class="access-btn" title="Reducir movimiento" data-action="reduce-motion" aria-pressed="false">⏸</button>
+  </aside>
+
+
+  <!-- ============================================================
+       EXTERNAL LINK MODAL
+  ============================================================ -->
+  <div class="modal-overlay" id="extWarning" role="dialog" aria-modal="true" aria-labelledby="extModalTitle"
+    aria-hidden="true">
+    <div class="modal-box">
+      <div class="modal-icon">🔗</div>
+      <h3 id="extModalTitle">Estás saliendo del portal SENA</h3>
+      <p>Serás redirigido a un sitio externo con sus propias políticas de privacidad y seguridad.</p>
+      <div class="modal-actions">
+        <button class="btn-cancel" id="extCancel">Cancelar</button>
+        <button class="btn-continue" id="extContinue">Continuar de todas formas</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       TOAST NOTIFICATION
+  ============================================================ -->
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+
+  <!-- ============================================================
+       TOP BAR
+  ============================================================ -->
+  <div class="top-bar">
+    <div class="container top-bar__inner">
+      <span>🇨🇴 Portal oficial del Gobierno de Colombia</span>
+      <nav class="top-bar__links" aria-label="Enlaces institucionales">
+        <a href="#" data-external="https://www.gov.co">gov.co</a>
+        <a href="#">Versión en inglés</a>
+        <a href="#">Mapa del sitio</a>
+        <a href="#">Ingreso funcionarios</a>
+      </nav>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       HEADER / MAIN NAVIGATION
+  ============================================================ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container site-header__inner">
+
+      <!-- Logo -->
+      <a class="logo" href="#" aria-label="SENA – Inicio">
+        <img id= "logo" src="img/logoSena.png" 
+            alt="Logo SENA" width="55" height="55" class="d-inline-block align-text-top">
+      </a>
+
+      <!-- Primary navigation -->
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul class="nav-menu" role="menubar">
+
+          <li class="nav-item" role="none">
+            <a class="nav-link nav-link--active" href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              🎓 Estudiar <span class="nav-chevron" aria-hidden="true">▾</span>
+            </a>
+            <ul class="nav-dropdown" role="menu" aria-label="Estudiar">
+              <li role="none"><a href="#" role="menuitem">Programas de formación</a></li>
+              <li role="none"><a href="#" role="menuitem">Formación virtual</a></li>
+              <li role="none"><a href="#" role="menuitem">SENA Digital</a></li>
+              <li role="none"><a href="#" role="menuitem">Bilingüismo</a></li>
+              <li role="none"><a href="#" role="menuitem">Articulación con la Media</a></li>
+              <li role="none"><a href="#" role="menuitem">WorldSkills</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item" role="none">
+            <a class="nav-link" href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              💼 Empleo <span class="nav-chevron" aria-hidden="true">▾</span>
+            </a>
+            <ul class="nav-dropdown" role="menu" aria-label="Empleo">
+              <li role="none"><a href="#" role="menuitem">Buscar empleo</a></li>
+              <li role="none"><a href="#" role="menuitem">Bolsa de trabajo</a></li>
+              <li role="none"><a href="#" role="menuitem">Orientación profesional</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item" role="none">
+            <a class="nav-link" href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              🚀 Emprendimiento <span class="nav-chevron" aria-hidden="true">▾</span>
+            </a>
+            <ul class="nav-dropdown" role="menu" aria-label="Emprendimiento">
+              <li role="none"><a href="#" data-external="https://www.fondoemprender.com" role="menuitem">Fondo
+                  Emprender</a></li>
+              <li role="none"><a href="#" role="menuitem">Ideas de negocio</a></li>
+              <li role="none"><a href="#" role="menuitem">Asesoría empresarial</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item" role="none">
+            <a class="nav-link" href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              📋 Trámites <span class="nav-chevron" aria-hidden="true">▾</span>
+            </a>
+            <ul class="nav-dropdown" role="menu" aria-label="Trámites">
+              <li role="none"><a href="#" role="menuitem">Pagos en línea</a></li>
+              <li role="none"><a href="#" role="menuitem">PQRSD</a></li>
+              <li role="none"><a href="#" role="menuitem">Oficina virtual</a></li>
+              <li role="none"><a href="#" role="menuitem">Mis certificados</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item" role="none">
+            <a class="nav-link" href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+              🤝 Atención ciudadana <span class="nav-chevron" aria-hidden="true">▾</span>
+            </a>
+            <ul class="nav-dropdown" role="menu" aria-label="Atención ciudadana">
+              <li role="none"><a href="#" role="menuitem">Canales de atención</a></li>
+              <li role="none"><a href="#" role="menuitem">Preguntas frecuentes</a></li>
+              <li role="none"><a href="#" role="menuitem">Quejas y denuncias</a></li>
+              <li role="none"><a href="#" role="menuitem">Carta de trato digno</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </nav>
+
+      <!-- Search -->
+      <div class="site-search" role="search">
+        <label for="searchInput" class="sr-only">Buscar en el portal</label>
+        <input id="searchInput" class="site-search__input" type="search" placeholder="¿Qué estás buscando?" />
+        <button class="site-search__btn" aria-label="Buscar">🔍</button>
+      </div>
+
+      <button class="login-trigger" id="loginTrigger" aria-expanded="false" aria-controls="loginPanel">
+  <span class="login-trigger__icon" aria-hidden="true">👤</span>
+  <span>Ingresar</span>
+</button>
+
+
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+  <main id="main-content">
+
+    <!-- ── HERO ─────────────────────────────────────────────── -->
+    <section class="hero" aria-labelledby="heroHeading">
+      <div class="container hero__inner">
+
+        <div class="hero__content">
+          <div class="hero__badge">✨ Más de 9 millones de colombianos capacitados</div>
+          <h1 class="hero__title" id="heroHeading">
+            Aprende, crece y <em>transforma</em> tu futuro
+          </h1>
+          <p class="hero__desc">
+            Accede gratis a programas de formación, oportunidades de empleo y apoyo al emprendimiento en todo el país.
+          </p>
+          <div class="hero__actions">
+            <button class="btn btn--primary" data-toast="Redirigiendo a inscripciones…" data-toast-type="success">
+              Inscríbete gratis →
+            </button>
+            <button class="btn btn--outline" data-toast="Cargando catálogo de programas…">
+              Ver programas
+            </button>
+          </div>
+        </div>
+
+        <div class="hero__stats" aria-label="Cifras del SENA">
+          <div class="stat-card">
+            <div class="stat-card__num">117</div>
+            <div class="stat-card__label">Centros de formación en Colombia</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__num">33</div>
+            <div class="stat-card__label">Regionales activas</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__num">9M+</div>
+            <div class="stat-card__label">Colombianos formados</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__num">100%</div>
+            <div class="stat-card__label">Formación gratuita</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ── QUICK ACCESS ──────────────────────────────────────── -->
+    <section class="quick-access" aria-labelledby="quickAccessTitle">
+      <div class="container">
+        <h2 class="quick-access__label" id="quickAccessTitle">Acceso rápido</h2>
+        <div class="quick-grid">
+
+          <button class="quick-card" style="--card-accent:#009B3A" data-toast="Abriendo inscripciones…"
+            data-toast-type="success">
+            <span class="quick-card__icon" aria-hidden="true">🎓</span>
+            <strong>Inscribirme</strong>
+            <span>Programas disponibles</span>
+          </button>
+
+          <button class="quick-card" style="--card-accent:#0066CC" data-toast="Cargando bolsa de empleo…">
+            <span class="quick-card__icon" aria-hidden="true">💼</span>
+            <strong>Buscar empleo</strong>
+            <span>Vacantes activas</span>
+          </button>
+
+          <button class="quick-card" style="--card-accent:#7C3AED" data-toast="Cargando trámites…">
+            <span class="quick-card__icon" aria-hidden="true">📋</span>
+            <strong>Mis trámites</strong>
+            <span>Pagos y gestiones</span>
+          </button>
+
+          <button class="quick-card" style="--card-accent:#DC2626" data-toast="Cargando PQRSD…">
+            <span class="quick-card__icon" aria-hidden="true">📨</span>
+            <strong>PQRSD</strong>
+            <span>Peticiones y quejas</span>
+          </button>
+
+          <button class="quick-card" style="--card-accent:#D97706" data-toast="Cargando certificados…">
+            <span class="quick-card__icon" aria-hidden="true">📜</span>
+            <strong>Mis certificados</strong>
+            <span>Descarga y validación</span>
+          </button>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── NOTICIAS ──────────────────────────────────────────── -->
+    <section class="section section--news" aria-labelledby="newsTitle">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title" id="newsTitle">Últimas <span>noticias</span></h2>
+            <p class="section-sub">Mantente informado sobre convocatorias y eventos</p>
+          </div>
+          <a class="btn-link" href="#">Ver todas →</a>
+        </div>
+
+        <div class="news-grid">
+
+          <article class="news-card news-card--featured">
+            <div class="news-card__img news-card__img--green">
+                <img id= "logo" src="img/n1.png">
+              <span class="news-card__badge">Convocatoria</span>
+            </div>
+            <div class="news-card__body">
+              <div class="news-card__meta">
+                <time datetime="2026-03-08">8 Mar 2026</time>
+                <span class="meta-dot" aria-hidden="true"></span>
+                <span>Formación</span>
+              </div>
+              <h3>Nueva convocatoria de inscripción para programas técnicos y tecnológicos 2026-1</h3>
+              <p>Más de 500 programas disponibles a nivel nacional. Inscripción abierta hasta el 31 de marzo en todas
+                las regionales.</p>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-card__img news-card__img--blue">
+              <img id= "logo" src="img/n2.jpeg">
+              <span class="news-card__badge">Empleo</span>
+            </div>
+            <div class="news-card__body">
+              <div class="news-card__meta">
+                <time datetime="2026-03-05">5 Mar 2026</time>
+              </div>
+              <h3>Feria de empleo SENA en Bogotá: más de 3.000 vacantes disponibles</h3>
+              <p>Participa el 15 de marzo en el Centro de Gestión de la Industria Gráfica.</p>
+            </div>
+          </article>
+
+          <article class="news-card">
+            <div class="news-card__img news-card__img--amber">
+              <img id= "logo" src="img/n3.jpeg">
+              <span class="news-card__badge">Emprendimiento</span>
+            </div>
+            <div class="news-card__body">
+              <div class="news-card__meta">
+                <time datetime="2026-03-01">1 Mar 2026</time>
+              </div>
+              <h3>Fondo Emprender abre nueva convocatoria con hasta $180 millones</h3>
+              <p>Ideas de negocio innovadoras pueden aplicar hasta el 20 de marzo.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── SERVICIOS ─────────────────────────────────────────── -->
+    <section class="section section--services" aria-labelledby="servicesTitle">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title" id="servicesTitle">Nuestros <span>servicios</span></h2>
+            <p class="section-sub">Todo lo que el SENA ofrece para ti</p>
+          </div>
+        </div>
+
+        <div class="services-grid">
+
+          <div class="service-card" tabindex="0" data-toast="Cargando formación…" data-toast-type="success">
+            <div class="service-card__icon" aria-hidden="true">🎓</div>
+            <h3>Formación profesional</h3>
+            <p>Programas técnicos, tecnológicos y especializaciones en todas las áreas del conocimiento, 100% gratuitos.
+            </p>
+            <span class="service-card__link">Explorar programas</span>
+          </div>
+
+          <div class="service-card" tabindex="0" data-toast="Cargando empleo…">
+            <div class="service-card__icon" aria-hidden="true">💼</div>
+            <h3>Agencia Pública de Empleo</h3>
+            <p>Conectamos candidatos con empleadores. Más de 10.000 vacantes activas en todo el territorio nacional.</p>
+            <span class="service-card__link">Buscar empleo</span>
+          </div>
+
+          <div class="service-card" tabindex="0" data-external="https://www.fondoemprender.com">
+            <div class="service-card__icon" aria-hidden="true">🚀</div>
+            <h3>Fondo Emprender</h3>
+            <p>Capital semilla no reembolsable para que emprendedores conviertan sus ideas en empresas sostenibles.</p>
+            <span class="service-card__link">Conocer más</span>
+          </div>
+
+          <div class="service-card" tabindex="0" data-toast="Cargando certificación…">
+            <div class="service-card__icon" aria-hidden="true">📜</div>
+            <h3>Certificación por competencias</h3>
+            <p>Certifica oficialmente tus habilidades laborales aunque no hayas estudiado formalmente.</p>
+            <span class="service-card__link">Solicitar certificación</span>
+          </div>
+
+          <div class="service-card" tabindex="0" data-toast="Cargando SENA Digital…">
+            <div class="service-card__icon" aria-hidden="true">💻</div>
+            <h3>SENA Digital</h3>
+            <p>Formación en tecnología: programación, ciberseguridad, IA y transformación digital para todos.</p>
+            <span class="service-card__link">Inscríbete online</span>
+          </div>
+
+          <div class="service-card" tabindex="0" data-toast="Cargando bilingüismo…">
+            <div class="service-card__icon" aria-hidden="true">🌍</div>
+            <h3>Bilingüismo</h3>
+            <p>Aprende inglés u otro idioma de manera gratuita en modalidad presencial y virtual.</p>
+            <span class="service-card__link">Aprender idiomas</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ── PASOS PARA INSCRIBIRSE ────────────────────────────── -->
+    <section class="section section--steps" aria-labelledby="stepsTitle">
+      <div class="container">
+        <div class="steps-header">
+          <h2 class="section-title" id="stepsTitle">¿Cómo <span>inscribirme</span>?</h2>
+          <p>Sigue estos 4 pasos sencillos para comenzar tu formación en el SENA</p>
+        </div>
+
+        <ol class="steps-track" aria-label="Proceso de inscripción">
+          <li class="step step--done">
+            <div class="step__num" aria-label="Paso completado">✓</div>
+            <h4>Crea tu cuenta</h4>
+            <p>Regístrate en Sofia Plus con tu documento de identidad</p>
+          </li>
+          <li class="step step--active">
+            <div class="step__num" aria-current="step">2</div>
+            <h4>Elige tu programa</h4>
+            <p>Busca entre más de 500 programas según tu región</p>
+          </li>
+          <li class="step">
+            <div class="step__num">3</div>
+            <h4>Completa el formulario</h4>
+            <p>Ingresa tus datos y documentos requeridos</p>
+          </li>
+          <li class="step">
+            <div class="step__num">4</div>
+            <h4>¡Listo!</h4>
+            <p>Recibirás confirmación por correo electrónico</p>
+          </li>
+        </ol>
+
+      </div>
+    </section>
+
+
+    <!-- ── CTA BANNER ────────────────────────────────────────── -->
+    <section class="cta-banner" aria-labelledby="ctaTitle">
+      <div class="container cta-banner__inner">
+        <h2 id="ctaTitle">¿Listo para transformar tu futuro?</h2>
+        <p>Únete a millones de colombianos que ya estudian con el SENA. Es gratuito y está en todo el país.</p>
+        <button class="btn btn--primary btn--lg" data-toast="Redirigiendo a inscripciones…" data-toast-type="success">
+          Comienza gratis hoy →
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="site-footer" aria-label="Pie de página">
+    <div class="container site-footer__inner">
+
+      <div class="footer-grid">
+
+        <!-- Brand -->
+        <div class="footer-brand">
+          <div class="logo">
+            <img id= "logo" src="img/logoSena.png" 
+            alt="Logo SENA" width="60" height="60" class="d-inline-block align-text-top">
+          </div>
+          <p>Entidad pública del orden nacional adscrita al Ministerio del Trabajo de Colombia.</p>
+        </div>
+
+        <!-- Links -->
+        <nav class="footer-col" aria-label="Estudiar">
+          <h4>Estudiar</h4>
+          <ul>
+            <li><a href="#">Programas técnicos</a></li>
+            <li><a href="#">Formación virtual</a></li>
+            <li><a href="#">SENA Digital</a></li>
+            <li><a href="#">Bilingüismo</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Trámites">
+          <h4>Trámites</h4>
+          <ul>
+            <li><a href="#">Inscripciones</a></li>
+            <li><a href="#">Pagos en línea</a></li>
+            <li><a href="#">Certificados</a></li>
+            <li><a href="#">PQRSD</a></li>
+          </ul>
+        </nav>
+
+        <nav class="footer-col" aria-label="Contacto">
+          <h4>Contáctanos</h4>
+          <ul>
+            <li><a href="tel:018000910270">📞 018000 910 270</a></li>
+            <li><a href="mailto:contactenos@sena.edu.co">✉️ contactenos@sena.edu.co</a></li>
+            <li><a href="#">📍 Bogotá, Colombia</a></li>
+            <li><a href="#" data-external="https://twitter.com/SENA">🐦 Twitter / X</a></li>
+          </ul>
+        </nav>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 SENA – Todos los derechos reservados</span>
+        <nav aria-label="Legal">
+          <a href="#">Términos y condiciones</a>
+          <a href="#">Política de privacidad</a>
+          <a href="#">Accesibilidad</a>
+          <a href="#">Mapa del sitio</a>
+        </nav>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Login Overlay (fondo oscuro) -->
+<div class="login-overlay" id="loginOverlay" aria-hidden="true"></div>
+
+<!-- Login Panel (sidebar deslizante) -->
+<aside class="login-panel" id="loginPanel" role="dialog" aria-modal="true" aria-labelledby="loginTitle" aria-hidden="true">
+
+  <!-- Cabecera del panel -->
+  <div class="login-panel__header">
+    <div class="login-panel__logo">
+      <img id= "logo" src="img/logoSena.png" 
+            alt="Logo SENA" width="60" height="60" class="d-inline-block align-text-top">
+    </div>
+    <button class="login-panel__close" id="loginClose" aria-label="Cerrar panel de inicio de sesión">✕</button>
+  </div>
+
+  <!-- Cuerpo del formulario -->
+  <div class="login-panel__body">
+
+    <div class="login-panel__intro">
+      <h2 id="loginTitle">Bienvenido de nuevo</h2>
+      <p>Ingresa con tu número de documento o usuario registrado en Sofia Plus.</p>
+    </div>
+
+    <form class="login-form" id="loginForm" novalidate>
+
+      <!-- Campo: Documento / Usuario -->
+      <div class="form-field" id="fieldUsuario">
+        <label class="form-field__label" for="inputUsuario">
+          Documento o usuario
+        </label>
+        <div class="form-field__input-wrap">
+          <span class="form-field__icon" aria-hidden="true">👤</span>
+          <input
+            class="form-field__input"
+            id="inputUsuario"
+            type="text"
+            placeholder="Ej: 1234567890"
+            autocomplete="username"
+            required
+          />
+        </div>
+        <span class="form-field__error" id="errorUsuario" role="alert"></span>
+      </div>
+
+      <!-- Campo: Contraseña -->
+      <div class="form-field" id="fieldPassword">
+        <label class="form-field__label" for="inputPassword">
+          Contraseña
+        </label>
+        <div class="form-field__input-wrap">
+          <span class="form-field__icon" aria-hidden="true">🔒</span>
+          <input
+            class="form-field__input"
+            id="inputPassword"
+            type="password"
+            placeholder="Tu contraseña"
+            autocomplete="current-password"
+            required
+          />
+          <button
+            class="form-field__toggle"
+            id="togglePassword"
+            type="button"
+            aria-label="Mostrar contraseña"
+          >👁</button>
+        </div>
+        <span class="form-field__error" id="errorPassword" role="alert"></span>
+      </div>
+
+      <!-- Recordarme + Olvidé contraseña -->
+      <div class="login-form__row">
+        <label class="checkbox-label">
+          <input class="checkbox-label__input" type="checkbox" id="rememberMe" />
+          <span class="checkbox-label__box" aria-hidden="true"></span>
+          Recordarme
+        </label>
+        <a class="login-form__forgot" href="#">¿Olvidaste tu contraseña?</a>
+      </div>
+
+      <!-- Botón submit -->
+      <button class="login-form__submit" type="submit" id="loginSubmit">
+        <span class="login-form__submit-text">Ingresar</span>
+        <span class="login-form__submit-spinner" aria-hidden="true"></span>
+      </button>
+
+    </form>
+
+    <!-- Divisor -->
+    <div class="login-divider">
+      <span>¿No tienes cuenta?</span>
+    </div>
+
+    <!-- Registro -->
+    <a class="login-register-btn" href="#">
+      Regístrate gratis en Sofia Plus →
+    </a>
+
+    <!-- Aviso institucional -->
+    <p class="login-panel__notice">
+      🔒 Conexión segura. Tus datos están protegidos bajo la Ley 1581 de 2012.
+    </p>
+
+  </div>
+</aside>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
