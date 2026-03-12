@@ -1410,3 +1410,56 @@ h1, h2, h3, h4 { line-height: 1.25; }
   .login-trigger span:last-child { display: none; }
 }
 
+/* ================================================================
+   21. head- adaptacion en deskop y  movil
+================================================================ */
+
+/*escritorio*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  flex: 0 0 auto; /* evita que se colapse */
+}
+
+.logo img {
+  height: 50px; /* tamaño fijo */
+  display: block; /* siempre visible */
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+#menu-btn {
+  display: none; /* oculto en escritorio */
+}
+
+
+/* moviles */ 
+
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap; /* permite que logo y menú se acomoden */
+  }
+
+  #menu-btn {
+    display: block;
+  }
+
+  .nav-menu {
+    display: none;            /* oculto por defecto */
+    flex-direction: column;
+    width: 100%;              /* ocupa todo el ancho */
+    background: #f5f5f5;
+    padding: 10px;
+  }
+
+  .nav-menu.visible {
+    display: flex;            /* se muestra cuando se activa */
+  }
+}

@@ -391,3 +391,13 @@ const LoginPanel = (() => {
 })();
 LoginPanel.init();
 
+/* ================================================================
+   08. se adapta a version moviles 
+   al cambiar a movil la pagina se adapta.
+================================================================ */
+const btn = document.getElementById('menu-btn');
+const menu = document.querySelector('.nav-menu');
+
+btn.addEventListener('click', () => {
+  menu.classList.toggle('visible');
+});
